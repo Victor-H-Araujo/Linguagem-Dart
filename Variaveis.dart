@@ -95,4 +95,133 @@ void main() {
 
   print(
       'A frase 4 é: $frase4'); // A saída será formatada de acordo com a string.
+
+  // Criando uma raw String:
+
+  var frase5 =
+      'Victor irá \n para casa \n da avó'; // A raw string ignora todos os códigos especiais de formatação.
+
+  print(frase5);
+}
+
+// String constantes:
+void main() {
+  // Estes funcionam como string constante:
+  const numconst = 0;
+  const boolconst = true;
+  const stringconst = 'uma string constante';
+  // Estes não funcionam como string constante:
+  var numconst2 = 0;
+  var boolconst2 = true;
+  var stringconst2 = 'uma string constante';
+  const listconst = [1, 2, 3];
+
+  const stringconstvalida = '$numconst $boolconst $stringconst';
+  /* Só serão tratadas como constante, seja ela numerica, booleana
+  ou string contanto qe seja inicialmente declaradas como constante. */
+  // const stringconstinvalida = '$numconst2 $boolconst2 $stringconst2 $listconst';
+  print(stringconstvalida);
+}
+
+// TIPO: BOOLEANO
+
+void main() {
+  /* Para representar valores booleanos, Dart tem o tipo chamado bool.
+  Apenas dois objetos contem o tipo bool: os literais booleanos que são
+  falsos ou verdadeiros. O qual ambos são constantes durante a compilação.*/
+  var nome = '';
+
+  print(nome.isEmpty); // checando se a variavel nome esta vazia.
+
+  var hitpoints = 0;
+
+  print(
+      'hitpoints é menor ou igual a 0? \n${hitpoints <= 0}'); //Verificando se é zero.
+
+  var unicornio;
+
+  print('Unicornio é valor nulo? \n${unicornio == null}');
+
+  var divisao = 10 / 2;
+
+  print('O valor de divisão não é um numero? \n${divisao.isNaN}');
+}
+
+// TIPO: LISTA
+void main() {
+  /* Provavelmente a coleção mais comum em quase todas as linguagens de programação é array, ou grupo ordenado de objetos, ou ainda
+  estrutura de dados. Em Dart, um grupo de objetos ordenados podem ser um list, geralmente chamadas de listas */
+
+  var lista = [1, 2, 3];
+  // int lista2 = [1, 2, 3];  Acusaria erro.
+  var lista2 = ['a', 33, 'segundo', '#R78'];
+
+  // NOTA: Dart interpreta que o tipo list seja por padrão lis<int> (Vero tipo inteiro)
+  print('A primeira lista é: $lista \nA segunda lista é: $lista2');
+  // Para tornar obrigatório somente a entrada de inteiros na lista a formatação abaixo deverá ser usada:
+  List<int> listaDeInteiros = [
+    1,
+    2,
+    3
+  ]; // Se for inserido um dado não inteiro haverá erro.
+  print('A lista de inteiros é: $listaDeInteiros');
+
+  /* Você pode adicionar uma virgula no ultimo item de uma lista, a virgula final não afeta na lista, ela pode
+  ajudar a previnir erros de copiar e colar.*/
+
+  var listaComVirgula = [
+    'carro',
+    'barco',
+    'avião',
+  ];
+
+  print('A lista com virgula no final é: $listaComVirgula');
+
+  /* Lista usam indexação baseada a partir do zero, onde zero é o primeiro indice do primeiro valor e
+  list.length - 1 é o indice do ultimo valor. Você pode pegar o tamanho de uma lista e referencia-la atravez
+  dos valores dos indices. */
+
+  var lista3 = [
+    1,
+    2,
+    3,
+  ];
+
+  print('O tamanho da lista é: ${lista3.length == 3}');
+
+  print('O indice 1 da lista é: ${lista3[1]}');
+
+  // Para criar uma lista que seja do tipo constante basta adicionar const antes da lista []
+  var listaConstante = const [
+    1,
+    2,
+    3,
+  ];
+
+  /* Dart contém um operador de aumento (...) e um operador acautelado de aumento, o qual providencia
+  um modo mais conciso para para inssersão de multiplos valores dentro da coleção, neste caso, da lista.*/
+
+  var list4 = [1, 2, 3];
+  var list5 = [0, ...list4];
+  print('A lista 5 contem: $list5');
+
+  var list6;
+  list5 = [
+    0,
+    ...?list6
+  ]; // chamando a list5 novamente, pois já foi declarada, agora apenas alterando conteudo.
+  print('A lista 5 agora contem: $list5');
+
+  /* Dart permite o uso da coleção if e coleção for, qaonde você pode usar para construir coleções usando condi-
+  cional if e o laço de repetição for.*/
+
+  // Exemplo de uso da coleção if paraa criar lista com três ou quatro itens:
+  var palavras = ['Casa', 'jarro', 'plantas', if (promoActive) 'saida'];
+
+  var numeros = [1, 2, 3, 4];
+  var listaString = ['#0', for (var i in numeros) '#$i'];
+
+  print(listaString[1]); // A saída será #1
+
+  // O tipo lista contem vários outros métodos para sua manipulação, para mais detalhes, consultar collections e Generics.
 }
