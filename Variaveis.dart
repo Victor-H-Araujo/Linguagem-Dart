@@ -225,3 +225,30 @@ void main() {
 
   // O tipo lista contem vários outros métodos para sua manipulação, para mais detalhes, consultar collections e Generics.
 }
+
+// TIPO: SET
+
+void main() {
+  // Set em Dart se trata de uma coleção de itens unicos não ordenados.
+
+  var halogenios = {'fluoreto', 'cloro', 'bromo', 'iodo'};
+  /* Dart deduz que halogenio é do tipo Set<String>, se tentarmos adicionar um tipo errado de valor em set,
+  ocorrerá erro em compilação. Para mais informações, ver Inferencia de tipos
+  (Type Inference). Esse mesmo evento ocorre nas configurações de List. */
+
+  var nomes = <String>{}; // Para criar set vazio usa-se este modelo, {} procedido pelo tipo de argumento.
+  Set<String> nomes2 = {}; // Ou ainda, atribuir {} na variavel do tipo Set.
+
+  /* Map são similares ao formato de Set, porque a definição básica de Map vem primeiro, apenas {} define o tipo Map.
+  Se você esquecer a anotação do tipo, em {}, ou a atribuição de variável tambem, Dart irá criar um objeto do tipo
+  Map<dynamic, dynamic>. */
+
+  // Adicionando itens em um set existente, usando os métodos add() ou addAll(), para um ou mais itens respectivamente.
+
+  var elementos = <String>{};
+  elementos.add('Carbono');
+  elementos..addAll(halogenios);
+
+  print('A coleção Set agora contem os seguintes elementos: $elementos');
+
+}
