@@ -236,7 +236,8 @@ void main() {
   ocorrerá erro em compilação. Para mais informações, ver Inferencia de tipos
   (Type Inference). Esse mesmo evento ocorre nas configurações de List. */
 
-  var nomes = <String>{}; // Para criar set vazio usa-se este modelo, {} procedido pelo tipo de argumento.
+  var nomes = <
+      String>{}; // Para criar set vazio usa-se este modelo, {} procedido pelo tipo de argumento.
   Set<String> nomes2 = {}; // Ou ainda, atribuir {} na variavel do tipo Set.
 
   /* Map são similares ao formato de Set, porque a definição básica de Map vem primeiro, apenas {} define o tipo Map.
@@ -247,8 +248,81 @@ void main() {
 
   var elementos = <String>{};
   elementos.add('Carbono');
-  elementos..addAll(halogenios);
+  elementos.addAll(halogenios);
 
-  print('A coleção Set agora contem os seguintes elementos: $elementos');
+  print(
+      'A coleção Set agora contem os seguintes elementos: $elementos o tamanho dela é ${elementos.length}');
+  // Nota-se o uso de .length para identificar o tamanho da coleção Set.
 
+  // Para criar uma coleção constante de Set, basta adicionar const  depois de set
+
+  final ConstanteSet = const {
+    'fluor',
+    'cloro',
+    'bromo',
+    'iodo',
+    'cianeto',
+  };
+
+  print(ConstanteSet);
+
+  // ConstanteSet.add('helio'); causará erro.
+  // para remover usa-se remove no lugar de add, obedecendo a mesma sintaxe.
+  // Set suporta a extensão de operadores ... e ...? e a coleção de if e for, assim como as listas fazem.
+}
+
+// TIPO: MAP
+
+void main() {
+  /* Em geral, um map é um objeto que associa a chaves de valores, ambos, chaves e valores, podem ser qualquer tipo
+  de objeto. Cada chave ocorre apenas uma vez, mas pode-se usar o mesmo valor varias vezes. */
+
+  var presentes = {
+    // key:    valor
+    'primeiro': 'bola',
+    'segundo': 'chaveiro',
+    'quinto': 'livro de ouro'
+  };
+
+  print(presentes);
+
+  var gasesNobres = {2: 'helio', 3: 'neon', 4: 'radonio'};
+
+  print(gasesNobres);
+
+  // Pode-se criar, adicionar objetos  atraves do construtor de Map.
+
+  presentes['quarto'] =
+      'quebra cabeças'; // Adicionando uma chave e um valor ao map "presentes".
+
+  print(presentes);
+
+  var jogos = Map(); // Criando Map atraves do construtor.
+  jogos['pra pc'] = 'pubg';
+  jogos['pra mobile'] = 'pubg mobile';
+  jogos['no steam'] = 'GTA V';
+
+  print(jogos);
+
+  // Checando uma chave e seu valor correspondente, atraves de booleano.
+
+  print(presentes['primeiro'] == 'bola');
+
+  // Checando se uma chave não consta no map usando valor logico como retorno
+
+  print(presentes['sexto'] == null);
+
+  // Usando.length para pegar o numero de pares, chave-valor, no map:
+
+  print(presentes.length);
+
+  // Para criar um  mapa que seja constante adicione const em sua definição:
+
+  final mapConstante = const {
+    1: 'segunda',
+    2: 'terça',
+  };
+
+  // Se tentar adicionar:   mapconstante[3] = 'quarta'; irá ocorrer um erro.
+  // Map suporta a extensão de operadores ... e ...? e a coleção de if e for, assim como as listas fazem.
 }
