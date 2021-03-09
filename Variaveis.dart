@@ -3,6 +3,8 @@
 usar construtores para inicializar variáveis.*/
 
 // TIPO: NÚMEROS
+import 'dart:html';
+
 void main() {
   int num = 1; // Para inteiros.
   double num2 = 2.65; // Para dupla precisão.
@@ -326,3 +328,14 @@ void main() {
   // Se tentar adicionar:   mapconstante[3] = 'quarta'; irá ocorrer um erro.
   // Map suporta a extensão de operadores ... e ...? e a coleção de if e for, assim como as listas fazem.
 }
+// TIPO :SYMBOLS
+
+/* O objeto Simbolo representa um operador ou identifica uma declaração em Dart. São de uso inestimável para APIs
+Para obter um simbolo por identificação  basta usar seu simbolo, que é apenas  o # seguido do identificador 
+
+Ex: 
+
+#radix
+#bar
+
+*/
