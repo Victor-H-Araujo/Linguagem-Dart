@@ -1,15 +1,7 @@
-void main() {
-  String dizer(String de, String msg, [String dispositivo]) {
-    var resultado = '$de diz $msg';
-    if (dispositivo != null) {
-      resultado = '$resultado com o $dispositivo';
-    }
-    return resultado;
-  }
+void main(List<String> argumentos) {
+  print(argumentos);
 
-  // Segue o exemplo de chamada desta função acima sem o parametro opcional:
-  print(dizer('Victor', 'Olá'));
-  // Segue o exemplo usando o terceiro parametro, que é opcional:
-
-  print(dizer('Victor', 'Olá', 'sinal fraco'));
+  print(argumentos.length == 2);
+  print(int.parse(argumentos[0] == 1));
+  print(argumentos[1] == 'teste');
 }

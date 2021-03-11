@@ -92,3 +92,55 @@ opcionais. */
   dizer('Victor', 'Olá', 'sinal fraco');
   
 }
+
+// VALORES DE PARAMETROS PADRÃO
+
+/* Sua função pode usar = para definir um valor padrão para ambos os tipos de parametros, nomeados ou posicionais.
+Se não for definido um valor padrão, o valor padrão será tomado como null (nulo). */
+void sinaleiro({bool aberto = false, bool fechado = false}){
+  // Tornando o conjunto de parametros, aberto e fechado, falsos como valores padrão.
+
+}
+// aberto se tornará verdadeiro, fechado se tornará falso.
+sinaleiro(aberto: true);
+
+// NOTA: códigos antigos talvez usem dois pontos (:) ao inves de = para o conjunto de valores padrões em parametros nomeados
+
+String dizer(String quem, String msg, [String dispositivo = 'carga de sinal fraca']){
+  var resultado = '$quem says $msg com o $dispositivo';
+  return resultado;
+}
+
+print(dizer('Victor', 'Olá'));
+
+// Você tambem pode passar listas ou mapas como valores padrões.abstract
+
+void fazerAlgo({List<int> lista = const[1, 2, 3], Map<String, String> presentes = const{
+  'primeiro': 'papel', // Especificando uma lista com valor padrão de parametro e um map com valor padrão de parametro.
+  'segundo': 'balão',
+  'terceiro': 'boneco'
+}}) {
+  print('lista: $lista');
+  print('presentes: $presentes');
+
+}
+
+//  A FUNÇÃO MAIN()
+
+// Todo app tem uma função de alto nivel, que é main(), ela serve de ponto de entrada para o app.abstract
+// A função main() retorna vazio e tem como opcional List<String> como argumento de paramtro.
+
+void main(){
+  consultorSeletivo('#simples texto aqui')
+  ..texto = 'Clique aqui!'; // .. que procede o codigo é chamado de cascada. Voce pode realizar multiplas
+  ..onClique.listen(textoReserva); // operações com os membros de um unico obejto.
+ 
+}
+ void main(List<String> argumentos){
+   print(argumentos);
+
+   print(argumentos.length == 2);
+   print(int.parse(argumentos[0] == 1));
+   print(argumentos[1] == 'teste');
+
+ }
