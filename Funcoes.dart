@@ -127,7 +127,7 @@ void fazerAlgo({List<int> lista = const[1, 2, 3], Map<String, String> presentes 
 
 //  A FUNÇÃO MAIN()
 
-// Todo app tem uma função de alto nivel, que é main(), ela serve de ponto de entrada para o app.abstract
+// Todo app tem uma função de alto nivel, que é main(), ela serve de ponto de entrada para o app.
 // A função main() retorna vazio e tem como opcional List<String> como argumento de paramtro.
 
 void main(){
@@ -136,11 +136,60 @@ void main(){
   ..onClique.listen(textoReserva); // operações com os membros de um unico obejto.
  
 }
- void main(List<String> argumentos){
+void main(List<String> argumentos){
    print(argumentos);
 
-   print(argumentos.length == 2);
+   print(argumentos.length == 2);  // DUVIDA - DUVIDA - DUVIDA - DUVIDA - DUVIDA - DUVIDA
    print(int.parse(argumentos[0] == 1));
    print(argumentos[1] == 'teste');
 
  }
+
+ // FUNÇÕES COMO OBJETO DE PRIMEIRA CLASSE
+ // Você pode passar uma função como um parametro de outra função.abstract
+
+  void printElemento( int elemento){
+    print(elemento);
+  }
+
+  var list = [1, 2, 3];
+
+  // Passando printElemento como um parametro
+
+  list.forEach(printElemento);
+  
+  /* forEach()
+  - Este método chama a função, uma vez para cada elemento em uma matriz/lista, em ordem.
+  - Esta função não é executada para/em matriz/lista que não tenha valores como seus elementos. */
+
+  // Tambem podemos atribuiruma função como uma variavel:
+
+  var propaganda = (msg) => '!!! ${msg.toUpperCase()} !!!';
+  print(propaganda('Olá'));  // Este exemplo usa uma função anonima.
+
+// Funções anonimas:
+/* São funções criadas, definidas, sem nome, portando, chamadas de funções anonimas ou as vezes de lambda ou closure. Você
+pode atribuir uma função anonima para uma variável em que, por exemplo, voce possa adicionar ou remover ela da coleção (collection)
+
+A função anonima é visualmente similar a uma função nomeada, com zero ou mais parametros, separados por virgulas e tipos de anotações
+opcionais, entre de parenteses.
+
+([[Tipo] param1[, ...]]){
+  bloco de código;
+};
+
+A função anonima abaixo não terá o parametro item tipado:  */
+  var list = ['maçãs', 'bananas', 'laranjas'];
+  list.forEach((item){
+      print('${list.indexOf(item)}: $item');
+  });
+
+// A função abaixo contem apenas uma declaração, você pode encurta-la usando a sintaxe da seta.
+
+list.forEach((item) => print('${list.indexOf(item)}: $item'));
+
+
+
+
+
+
