@@ -188,6 +188,36 @@ A função anonima abaixo não terá o parametro item tipado:  */
 
 list.forEach((item) => print('${list.indexOf(item)}: $item'));
 
+// ESCOPO LEXICO
+
+/* Trata-se de que o escopo das variaveis são determinados estaticamente, simplesmente de acordo com o layout do código.
+
+Exemplo de funções aaninhadas com variáveis em cada nivel de escopo:  */
+
+var nivelAcima = true;
+
+void main() {
+  var dentroMain = true;
+
+  void minhaFuncao() {
+    var dentrodaminhaFuncao = true;
+
+    void funcaoAninhada() {
+      var dentrodaFuncaoAninhada = true;
+
+      assert(nivelAcima);
+      assert(dentroMain);
+      assert(dentrodaminhaFuncao);
+      assert(dentrodaFuncaoAninhada);
+    }
+  }
+}
+
+
+
+
+
+
 
 
 
