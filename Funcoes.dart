@@ -167,7 +167,7 @@ void main(List<String> argumentos){
   var propaganda = (msg) => '!!! ${msg.toUpperCase()} !!!';
   print(propaganda('Olá'));  // Este exemplo usa uma função anonima.
 
-// Funções anonimas:
+// FUNÇÕES ANONIMAS (REVER CONCEITOS)
 /* São funções criadas, definidas, sem nome, portando, chamadas de funções anonimas ou as vezes de lambda ou closure. Você
 pode atribuir uma função anonima para uma variável em que, por exemplo, voce possa adicionar ou remover ela da coleção (collection)
 
@@ -188,7 +188,7 @@ A função anonima abaixo não terá o parametro item tipado:  */
 
 list.forEach((item) => print('${list.indexOf(item)}: $item'));
 
-// ESCOPO LEXICO
+// ESCOPO LEXICAL (REVER CONCEITOS)
 
 /* Trata-se de que o escopo das variaveis são determinados estaticamente, simplesmente de acordo com o layout do código.
 
@@ -213,11 +213,76 @@ void main() {
   }
 }
 
+// FECHAMENTO LEXICAL (REVER CONCEITOS)
 
+/* O fechamento é um objeto da função que tem acesso a variáveis em seu escopo lexical,  sempre que a função for usada 
+fora do escopo original. 
+Funções podem  fechar sobre/atraves  as variaveis definidas  em torno do seu escopo. No exemplo a seguir, adicione() 
+captura a variavel addDe. Aonde quer que a função retornada vá, ela remeterá a addDe.abstract */
 
+Function adicione( int addDe){
+  return (int i) => addDe + 1;
+}
 
+void main(){
+  // Criando a função que adiciona 2. 
+  var add2 = adicione(2);
 
+  // Criando uma função que adiciona 4.
+  var add4 = adicione(4);
 
+  print('${add2(3) == 5}'); // aapresentará falso
+  print('${add4(3) == 7}'); // apresentará falso
+
+}
+
+// TESTE DE FUNÇÕES POR  IGUALDADE
+
+void funAltoNivel(){}
+
+class A {
+  static void metodoEsta() {} // Método estático
+  void instMetodo(){}
+}
+
+void main(){
+  var x;
+
+  // Comparando funções de alto nivel
+  x = funAltoNivel;
+  print('${funAltoNivel == x}');
+
+  // Comparando metódos estáticos
+  x = A.metodoEsta;
+  print('${A.metodoEsta == x}');
+
+  // Comparaando estancia de metodods
+  var v = A(); // Instancia #1 de A
+  var w = A(); // Instancia #2 de A
+  var y = w; 
+  x = w.instMetodo;
+
+  // Este fechamento refere-se a mesma instancia (#2)
+  // Portanto são iguais
+  print('${y.instMetodo == x}');
+
+  //Este fechamento se refere a diferentes instancias
+  // Portanto são diferentes
+  print('${v.instMetodo != w.instMetodo}');
+
+}
+
+// RETORNO DE VALORES POR FUNÇÕES 
+
+/* Todas as funções retornam um valor. Se ela não retornar um valor especificado, a declaração return null;
+ é implicitamente anexada no corpo da função. */
+
+void main(){
+ foo(){}
+
+ print('${foo() == null}');
+  
+}
 
 
 
