@@ -1,7 +1,6 @@
+void main() {
+  int car;
+  car ??= 2;
 
-void main(){
- foo(){}
-
- print('${foo() == null}');
-  
+  print('$car ');
 }
