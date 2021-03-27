@@ -47,3 +47,45 @@ var collection = [1, 2, 3];
 for (var x in collection) {
   print(x); //1 2 3
 }
+
+// While e Do-While
+
+// A função While avalia a condição antes do loop:
+
+ while (!estaPronto) { // A negação do valor esperado para função como condição.
+   fazerAlgumacoisa();
+   
+ }
+
+ // O loop do-while avalia a condição depois do loop:
+ do {
+   printLinha();
+ } While (!ateFimdaPagina());
+
+ // Break e Continue
+
+ // Usa-se Break para parar o lopp:
+
+ while (true){
+   if (pedidoParaDesligar()) break;
+   processoEntradadoPedido():
+ }
+
+ // Usa-se continue para pular para a proximação interação do loop.
+
+ for (int i = 0; i < candidates.length; i++) {
+   var candidato = candidatos[i];
+   if (candidato.anosExperiencia < 5){
+     continue;
+   }
+   candidato.entrevista();
+ }
+
+
+ //Switch  e case
+
+ /* É uma declaração usada para comparar inteiros, string ou constantes usando ==.
+ Os objetos comparados devem todos fazerem parte da mesma classe, e a classe não deve se sobrepor
+ (override). */
+
+ // cada caso não vazio com parametro ou valor vazio, clusura
